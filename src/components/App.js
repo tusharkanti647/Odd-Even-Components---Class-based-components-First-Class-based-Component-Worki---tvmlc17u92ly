@@ -2,6 +2,9 @@ import React from 'react'
 import '../styles/App.css';
 
 class Odd extends React.Component {
+  componentWillUnmount() {
+    console.log("Odd is unmounted");
+  }
 
   render() {
     return (
@@ -13,6 +16,9 @@ class Odd extends React.Component {
 }
 
 class Even extends React.Component {
+  componentWillUnmount() {
+    console.log("Even is unmounted");
+  }
 
   render() {
     return (
@@ -23,14 +29,16 @@ class Even extends React.Component {
   }
 }
 class App extends React.Component {
-  handleChange(){
-    this.setState({even: !this.state.even})
+  handleChange() {
+    this.setState({ even: !this.state.even })
   }
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state = {even: true}
-    this.handleChange =  this.handleChange.bind(this)
+    this.state = { even: true }
+    this.handleChange = this.handleChange.bind(this)
   }
+
+
   render() {
     return (
       <div id="main">
